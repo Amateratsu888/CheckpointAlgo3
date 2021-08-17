@@ -1,0 +1,40 @@
+FUNCTION dot_product(v1,v2 : ARRAY_OF INTEGER[m], m : INTEGER) : INTEGER
+VAR
+ps : INTEGER;
+ps := 0;
+BEGIN
+    FOR i FROM 0 TO m-1 STEP 1  DO
+        ps := ps + (v1[i]*v2[i]);
+    END_FOR 
+    
+    RETURN ps;
+END
+
+ALGORITHM dot_product_calculator
+VAR
+    ps,i,j,m,n:INTEGER;
+    v1,v2 : ARRAY_OF INTEGER[m];
+BEGIN
+    write('Saisir le nombre de paire de vecteur a calculer');
+    read(n);
+
+    FOR i FROM 1 TO max n STEP 1 DO
+
+    write('saisir le nombre de valeur pour vos vecteurs');
+    read(m);
+
+        FOR j FROM 0 TO m-1 STEP 1  DO
+            write('saisir la valeur '+j+'du  vecteur v1');
+            read(v1[j]);
+            write('saisir la valeur '+j+'du  vecteur v2');
+            read(v2[j]);
+        END_FOR
+
+        ps := dot_product(v1,v2,m);
+        IF (ps == 0) THEN
+            write('Les 2 vecteurs sont orthogonaux');
+        ELSE
+            write('le produit scalaire de V1 et V2 donne '+ps);
+        END_IF
+    END_FOR
+END
